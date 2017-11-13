@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car Service Center, Oil Change, Car Filters change, car wash">
+    <meta name="author" content="">
+    <title>Stop and Go, Car Service Palestine</title>
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/icon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<script>
+         function SendMessage() {
+             var Name = document.getElementById('name').value;
+             var Email = document.getElementById('email').value;
+             var Message = document.getElementById('message').value;
+			 var Subject = document.getElementById('subject').value;
+             var Mobile = "0";
+             var d = "={'FullName':'" + Name + "','Mobile':'" + Mobile + "','Content':'" + Message +"=="+Subject + "','Email':'" + Email + "'}";
+             $.ajax({
+                 type: "POST",
+                 url: "http://www.car-stopandgo/api/Messages",
+                 data: d,
+                 success: function (data) { alert("Thank You !") },
+                 headers: {
+
+                     'Content-Type': 'application/x-www-form-urlencoded'
+                 },
+                 dataType: "json"
+             });
+
+			 return false;
+         }
+
+
+function initialize() {
+
+
+var content = "Testing !!!";
+
+
+var list = [["Dura Branch",31.496318, 35.051914],["Halhul Branch",31.589738, 35.104657],["Bethlehem Branch, coming soon..",31.699830, 35.190166],["Ramallah Branck, coming soon..",31.889056, 35.211718]];
+
+
+var mapCanvas = document.getElementById('map-canvas');
+var mapOptions = {
+                center: new google.maps.LatLng(31.695882, 35.131595),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.MAP
+                 };
+var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+var i=0,li=list.length;
+    while(i<li){
+        var myLatLng = new google.maps.LatLng(list[i][1],list[i][2]);
+        var markerContent = "<img src='images/mapicon.png' /> </br><b>" + list[i][0] + "</b>";
+        addMarker(myLatLng,markerContent,map);  
+        i++;
+    }
+
+}
+
+function addMarker(latlng,content,map){
+var infoWindow = new google.maps.InfoWindow({
+content : content
+});
+
+var iconBase = 'http://maps.google.com/mapfiles/kml/pal3/';
+var marker = new google.maps.Marker({
+position: latlng,
+map: map,
+icon: ''
+});
+
+google.maps.event.addListener(marker, 'click', function() {
+infoWindow.open(map,marker);
+});
+
+infoWindow.open(map,marker);
+
+}
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<style>
+#map-canvas {
+width: 100%;
+height: 600px;
+background-color: #CCC;
+
+}
+
+#home h1, h2, h3, h4{
+font:'JF Flat Regular',Sans-Serif;
+}
+</style>
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+    <header id="header">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top pull-right" role="banner">
+            <div class="container">
+                <a class="logoContainer navbar-brand" style="float: right;" href="index.html"><img class="img-responsive" src="images/logo.png" alt="logo"></a>
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    
+                </div>
+
+            
+
+            <div class="collapse navbar-collapse navbar-left">
+                <div class="fl_right">
+                <div class="meta-social" style="text-align: left;">
+                    <a href="https://www.facebook.com/Stop-and-Go-1469150059846966" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=OFthJujj0Uc" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </div>      
+                </div> 
+    
+                    <ul id="rtl-menu" class="nav navbar-nav fontNormalSize">
+                        <li class="scroll active"><a href="#home">الرئيسية</a></li>
+                        <li class="scroll"><a href="#services">المراكز</a></li>
+                        <li class="scroll"><a href="#capabilities">الخدمات</a></li>                        
+                        <li class="scroll"><a href="#partner">المنتجات</a></li>
+                        <li class="scroll"><a href="#team">الفريق</a></li>
+
+                        <li class="scroll"><a href="#about">Stop and Go عن</a></li>                                              
+                        <li class="scroll"><a href="#get-in-touch">اتصل بنا</a></li>                        
+                    </ul>
+                </div>
+            
+                
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="main-slider">
+               <div class="owl-carousel">
+            <div class="item" style="background-image: url(images/slider/bg1.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader" style="text-align: right;">مركز خدمات للسيارات الاول من نوعه في فلسطين</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+             <div class="item" style="background-image: url(images/slider/bg2.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader" style="text-align: right;">مهمتنا هي ان نبقيك على الطريق لا جانب الطريق</h2>								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+			 <div class="item" style="background-image: url(images/slider/bg5.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader" style="text-align: right;">نحن في "ستوب اند غو" ندرك معنى الاهتمام بالسيارة</h2>								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item" style="background-image: url(images/slider/bg6.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader" style="text-align: right;">...مركز خدمات متكامل للسيارات</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.owl-carousel-->
+    </section><!--/#main-slider-->
+
+   <section id="services" >
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">مراكزنا</h2>
+                <p class="text-center wow fadeInDown fontNormalSize"></p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-12 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        
+
+                             <div id="map-canvas"></div>
+
+
+
+
+                    </div><!--/.col-md-12-->
+
+                    
+
+                    
+				</div> <!-- End of class features -->
+			</div> <!-- End of class row -->
+                
+           
+        </div><!--/.container-->
+    </section><!--/#services-->	
+
+    <section id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">الخدمات</h2>
+            </div>
+						
+              
+        
+    <div class="row">
+	
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                <ul class="capabilities capSmall1 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/oilchange.png" alt="IoT">
+                        </div>
+                        <div class="cap-name">                                    
+							Car Oil and Filters Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+					<p style="text-align: justify;">
+					The engine is a vital part of any automobile; without it, the car would not go anywhere – sort of like a human heart. If it clogs up and stops, so does the person or the car. Worn out auto lubricant oil will lead to a lack of efficiency and sludge build-up within the engine. Think of sludge as being almost like cholesterol inside your car
+					</p>
+                    </div>
+					<img class="img-responsive capabilitiesLargeImg" src="images/services/oilchange.jpg" alt="Oil change">											
+                </ul>
+            </div>
+        </div>
+	
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                <ul class="capabilities capSmall2 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/mobile.png" alt="Mobile Development">
+                        </div>
+                        <div class="cap-name">
+							Car Wash
+						</div>
+                    </li>
+                    <div class='servicestext'>
+					<p style="text-align: justify;">Customer satisfaction is a top priority for us, we at Stop and Go, provide the best car wash service, we beleive shining clean car is a relflection of our commitment to deliver best customer experience</p>
+					</div>
+					<img class="img-responsive capabilitiesLargeImg" src="images/services/carwash2.jpg" alt="Car Wash">
+                </ul>
+            </div>
+        </div>
+						
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                <ul class="capabilities capSmall3 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/carcheck.png" alt="Web Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Diagnostics
+                        </div>
+                    </li>
+                    <div class="servicestext">
+					<p style="text-align: justify;">
+					Our team of experinced engineers and professionals are using cutting edge technologies to check and diagnose any problem your car might have. Using computer aided car diagnostics programs, our professionals can detect and fix a problem before it can make a damage</p>
+					</div>
+						<img class="img-responsive capabilitiesLargeImg" src="images/services/computer1.jpg" alt="car check using computer">							
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                <ul class="capabilities capSmall1 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/oilchange.png" alt="IoT">
+                        </div>
+                        <div class="cap-name">                                    
+                            Car Brakes Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+                    <p style="text-align: justify;">
+                    The engine is a vital part of any automobile; without it, the car would not go anywhere – sort of like a human heart. If it clogs up and stops, so does the person or the car. Worn out auto lubricant oil will lead to a lack of efficiency and sludge build-up within the engine. Think of sludge as being almost like cholesterol inside your car
+                    </p>
+                    </div>
+                    <img class="img-responsive capabilitiesLargeImg" src="images/services/oilchange.jpg" alt="Oil change">                                          
+                </ul>
+            </div>
+        </div>
+    
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                <ul class="capabilities capSmall2 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/mobile.png" alt="Mobile Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Wheels Drum Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+                    <p style="text-align: justify;">Customer satisfaction is a top priority for us, we at Stop and Go, provide the best car wash service, we beleive shining clean car is a relflection of our commitment to deliver best customer experience</p>
+                    </div>
+                    <img class="img-responsive capabilitiesLargeImg" src="images/services/carwash2.jpg" alt="Car Wash">
+                </ul>
+            </div>
+        </div>
+                        
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                <ul class="capabilities capSmall3 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/carcheck.png" alt="Web Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Battary Change
+                        </div>
+                    </li>
+                    <div class="servicestext">
+                    <p style="text-align: justify;">
+                    Our team of experinced engineers and professionals are using cutting edge technologies to check and diagnose any problem your car might have. Using computer aided car diagnostics programs, our professionals can detect and fix a problem before it can make a damage</p>
+                    </div>
+                        <img class="img-responsive capabilitiesLargeImg" src="images/services/computer1.jpg" alt="car check using computer">                            
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+			
+        </div>
+    </section><!--/#capabilities-->	
+	
+    <section id="partner" class="">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">المنتجات</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-img">
+                            <a href="http://www.profi-car.com/" target="_blank"><img class="img-responsive" src="images/products/proficar.jpg" alt="proficar"></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+
+                    <div class="product-images-thumb">
+                                            <img class="" src="images/products/stopandgo.png">
+                                            <h3>Stop & Go</h3>
+                    </div>
+
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Eco Drive</h3>
+
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb">
+                                            <img class="" src="images/products/20l_mit_label_2016.png">
+
+                                        </div>
+                </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="product-images-thumb">
+                <img class="" src="images/products/tonne_ohne_label.png">
+                        <h3> Profi-car Oil </h3>
+
+            </div>
+        </div>				
+    </div> <!-- End of Row -->
+
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+
+            <div class="product-images-thumb">
+                <img class="" src="images/products/lighttruck.png">
+                        <h3> Truck Oil </h3>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="product-images-thumb">
+                <img class="" src="images/products/polster_reiniger.png">
+                    <h3>Polster Reiniger  </h3>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="product-images-thumb">
+                <img class="" src="images/products/dsggear.png"> 
+                    <h3>Gear Oil</h3>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-3">
+            <div class="product-images-thumb">
+                <img class="" src="images/products/leather.png">
+            </div>
+        </div>              
+    </div> <!-- End of Row -->
+
+            
+        </div>
+    </section><!--/#partner-->
+
+    <section id="team" class="">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">الفريق</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-img">
+                            <a href="http://www.profi-car.com/" target="_blank"><img class="img-responsive" src="images/team/team.jpg" alt="Team"></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-images-thumb" >
+                         <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>           
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms"></a>
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms"></a>
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>              
+            </div> <!-- End of Row -->          
+            
+        </div>
+    </section><!--/#partner-->
+
+    <section id="about">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Stop and Go عن</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member animated fadeInLeft">
+                        <div class="team-images-thumb">
+                            <img class="img-responsive" src="images/boss.jpg" alt="General Manager">
+                            <h6> SALMAN MLEAHAT </h6>
+                            <h4> Executive Manager </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                <div class="bgblue">
+                <p class="text-center wow fadeInDown fontNormalSize">
+				We at Stop and Go understand what it means to take care of a Car, our mission is to keep you on the road not off the road. You can sitdown and relax while our team take care of your car - Salman Mleahat			
+				</p>
+                </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInRight">
+                        <div class="team-images-thumb">
+                            <img class="img-responsive" src="images/team/gmanager.jpg" alt="General Manager">
+                            <h6> QASEM SALAH </h6>
+                            <h4> General Manager </h4>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <div class="bgblue">
+                    <h3 class="column-title">Mission</h3>
+					<p class="fontNormalSize">Customer satisfaction through hight quality service and the use of good quality products. Respect and value our customers. Develope Service Centers to achive best customer service. Open more branches to reach customers all over the country. Use green and environment friendly products suitalbe for modern cars</p>
+                </div>
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                    <div class="bgblue">
+                    <h3 class="column-title">Vision</h3>
+                    <p class="fontNormalSize">The gurrentee that our customers get the best service on an international standard. Building and enforcment of our team capabilites and continuous enhancement of our facilities to ensure excellent service delivery </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#about-->	
+	
+    <section id="get-in-touch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">اتصل بنا</h2>
+               
+            </div>
+        </div>
+		<section id="contact">
+			<div class="container-wrapper">
+				<div class="container">
+					<div class="row">
+							<div class="contact-form wow fadeInDown">
+								<h3 class="smallContactHeader">Contact Us</h3>
+								<address class="fontNormalSize" style="margin-bottom: 8px;">
+								  <p>If you have any questions or need some assitance, please don't hesitate to contact us.</p>							
+								  <strong>Email:</strong> info@car-stopandgo.com <br>
+								</address>
+
+								<form id="main-contact-form" name="contact-form" method="post" action="#">
+									<div class="form-group">
+										<input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+									</div>
+									<div class="form-group">
+										<input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+									</div>
+									<div class="form-group">
+										<textarea name="message" id="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary fontNormalSize" onclick="SendMessage()">Send Message</button>
+								</form>
+							</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/#bottom-->		
+    </section><!--/#get-in-touch-->
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 fontNormalSize">
+					Copyright © 2017 QS LTD. All rights reserved.
+                </div>
+                <div class="col-sm-6">
+                    <div class="fl_right">
+                <div class="meta-social">
+                    <a href="https://www.facebook.com/Stop-and-Go-1469150059846966" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=OFthJujj0Uc" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </div>      
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCin-XG372Kc478jTK283Iv5-T2-dunJd4&callback=initialize"async defer></script>
+</body>
+</html>

@@ -1,0 +1,1451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Car Service Center, Oil Change, Car Filters change, car wash">
+    <meta name="author" content="">
+    <title>Stop and Go, Car Service Palestine</title>
+	<!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.transitions.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/icon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+	<script>
+         function SendMessage() {
+             var Name = document.getElementById('name').value;
+             var Email = document.getElementById('email').value;
+             var Message = document.getElementById('message').value;
+			 var Subject = document.getElementById('subject').value;
+             var Mobile = "0";
+             var d = "={'FullName':'" + Name + "','Mobile':'" + Mobile + "','Content':'" + Message +"=="+Subject + "','Email':'" + Email + "'}";
+             $.ajax({
+                 type: "POST",
+                 url: "http://www.car-stopandgo/api/Messages",
+                 data: d,
+                 success: function (data) { alert("Thank You !") },
+                 headers: {
+
+                     'Content-Type': 'application/x-www-form-urlencoded'
+                 },
+                 dataType: "json"
+             });
+
+			 return false;
+         }
+
+
+function initialize() {
+
+
+var content = "Testing !!!";
+
+
+var list = [["Dura Branch",31.496318, 35.051914],["Halhul Branch",31.589738, 35.104657],["Bethlehem Branch, coming soon..",31.699830, 35.190166],["Ramallah Branck, coming soon..",31.889056, 35.211718]];
+
+
+var mapCanvas = document.getElementById('map-canvas');
+var mapOptions = {
+                center: new google.maps.LatLng(31.695882, 35.131595),
+                zoom: 10,
+                mapTypeId: google.maps.MapTypeId.MAP
+                 };
+var map = new google.maps.Map(mapCanvas, mapOptions);
+
+
+var i=0,li=list.length;
+    while(i<li){
+        var myLatLng = new google.maps.LatLng(list[i][1],list[i][2]);
+        var markerContent = "<img src='images/mapicon.png' /> </br><b>" + list[i][0] + "</b>";
+        addMarker(myLatLng,markerContent,map);  
+        i++;
+    }
+
+}
+
+function addMarker(latlng,content,map){
+var infoWindow = new google.maps.InfoWindow({
+content : content
+});
+
+var iconBase = 'http://maps.google.com/mapfiles/kml/pal3/';
+var marker = new google.maps.Marker({
+position: latlng,
+map: map,
+icon: ''
+});
+
+google.maps.event.addListener(marker, 'click', function() {
+infoWindow.open(map,marker);
+});
+
+infoWindow.open(map,marker);
+
+}
+
+//google.maps.event.addDomListener(window, 'load', initialize);
+
+</script>
+
+<style>
+#map-canvas {
+width: 100%;
+height: 600px;
+background-color: #CCC;
+
+}
+</style>
+
+
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+    <header id="header">
+        <nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="logoContainer navbar-brand" href="index.html"><img class="img-responsive" src="images/logo.png" alt="logo"></a>
+                </div>
+
+                <div class="fl_right">
+                <div class="meta-social">
+                    <a href="https://www.facebook.com/Stop-and-Go-1469150059846966" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=OFthJujj0Uc" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </div>      
+                </div>
+
+            <div class="collapse navbar-collapse navbar-right">
+    
+                    <ul class="nav navbar-nav fontNormalSize">
+                        <li class="scroll active"><a href="#home">Home</a></li>
+                        <li class="scroll"><a href="#services">Centers</a></li>
+                        <li class="scroll"><a href="#capabilities">Services</a></li>                        
+                        <li class="scroll"><a href="#partner">Products</a></li>
+                        <li class="scroll"><a href="#team">Team</a></li>
+
+                        <li class="scroll"><a href="#about">About</a></li>                                              
+                        <li class="scroll"><a href="#get-in-touch">Contact</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+    </header><!--/header-->
+
+    <section id="main-slider">
+               <div class="owl-carousel">
+            <div class="item" style="background-image: url(images/slider/bg1.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader">Car Service Center The first of its kind in Palestine</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+             <div class="item" style="background-image: url(images/slider/bg2.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader">Our Mission Is To Keep You on Road Not Off Road</h2>								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+			 <div class="item" style="background-image: url(images/slider/bg5.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader">We at Stop and Go understand what it means to take care of a car</h2>								
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+            <div class="item" style="background-image: url(images/slider/bg6.jpg);">
+                <div class="slider-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="carousel-content sliderSmall">
+                                    <h2 class="sliderHeader">Car Service Center and More...</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.item-->
+        </div><!--/.owl-carousel-->
+    </section><!--/#main-slider-->
+
+   <section id="services" >
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Our Centers</h2>
+                <p class="text-center wow fadeInDown fontNormalSize"></p>
+            </div>
+
+            <div class="row">
+                <div class="features">
+                    <div class="col-md-12 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="0ms">
+                        
+
+                             <div id="map-canvas"></div>
+
+
+
+
+                    </div><!--/.col-md-12-->
+
+                    
+
+                    
+				</div> <!-- End of class features -->
+			</div> <!-- End of class row -->
+                
+           
+        </div><!--/.container-->
+    </section><!--/#services-->	
+
+    <section id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Services</h2>
+            </div>
+						
+              
+        
+    <div class="row">
+	
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                <ul class="capabilities capSmall1 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/oilchange.png" alt="IoT">
+                        </div>
+                        <div class="cap-name">                                    
+							Car Oil and Filters Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+					<p style="text-align: justify;">
+					The engine is a vital part of any automobile; without it, the car would not go anywhere – sort of like a human heart. If it clogs up and stops, so does the person or the car. Worn out auto lubricant oil will lead to a lack of efficiency and sludge build-up within the engine. Think of sludge as being almost like cholesterol inside your car
+					</p>
+                    </div>
+					<img class="img-responsive capabilitiesLargeImg" src="images/services/oilchange.jpg" alt="Oil change">											
+                </ul>
+            </div>
+        </div>
+	
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                <ul class="capabilities capSmall2 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/mobile.png" alt="Mobile Development">
+                        </div>
+                        <div class="cap-name">
+							Car Wash
+						</div>
+                    </li>
+                    <div class='servicestext'>
+					<p style="text-align: justify;">Customer satisfaction is a top priority for us, we at Stop and Go, provide the best car wash service, we beleive shining clean car is a relflection of our commitment to deliver best customer experience</p>
+					</div>
+					<img class="img-responsive capabilitiesLargeImg" src="images/services/carwash2.jpg" alt="Car Wash">
+                </ul>
+            </div>
+        </div>
+						
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                <ul class="capabilities capSmall3 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/carcheck.png" alt="Web Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Diagnostics
+                        </div>
+                    </li>
+                    <div class="servicestext">
+					<p style="text-align: justify;">
+					Our team of experinced engineers and professionals are using cutting edge technologies to check and diagnose any problem your car might have. Using computer aided car diagnostics programs, our professionals can detect and fix a problem before it can make a damage</p>
+					</div>
+						<img class="img-responsive capabilitiesLargeImg" src="images/services/computer1.jpg" alt="car check using computer">							
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+    
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="400ms">
+                <ul class="capabilities capSmall1 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/brakes.png" alt="IoT">
+                        </div>
+                        <div class="cap-name">                                    
+                            Car Brakes Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+                    <p style="text-align: justify;">
+                    At Stop and Go, we guarantee best brakes change service, we only deal with best and original parts, you can be sure you are safe with us.
+                    </p>
+                    </div>
+                    <img class="img-responsive capabilitiesLargeImg" src="images/services/brakes3.jpg" alt="Oil change">                                          
+                </ul>
+            </div>
+        </div>
+    
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="200ms">
+                <ul class="capabilities capSmall2 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/disc.png" alt="Mobile Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Wheels Drum Change
+                        </div>
+                    </li>
+                    <div class='servicestext'>
+                    <p style="text-align: justify;">
+                        Car Wheel Disc Change is also a service available at Stop and Go.
+                    </p>
+                    </div>
+                    <img class="img-responsive capabilitiesLargeImg" src="images/services/disc.jpg" alt="Car Wash">
+                </ul>
+            </div>
+        </div>
+                        
+        <div class="col-sm-8 col-md-4">
+            <div class="wow zoomIn" data-wow-duration="400ms" data-wow-delay="600ms">
+                <ul class="capabilities capSmall3 featured">
+                    <li class="capabilities-header">
+                        <div class="cap-img">
+                            <img class="img-responsive capabilitiesImg" src="images/capabilities/battary1.png" alt="Web Development">
+                        </div>
+                        <div class="cap-name">
+                            Car Battary Change
+                        </div>
+                    </li>
+                    <div class="servicestext">
+                    <p style="text-align: justify;">
+                        Battary change is one of the regular things car drivers do, we at Stop and Go, also provide this service.
+                    </p>
+                    </div>
+                        <img class="img-responsive capabilitiesLargeImg" src="images/services/battery.jpg" alt="car check using computer">                            
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+			
+        </div>
+    </section><!--/#capabilities-->	
+	
+    <section id="partner" class="">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Products</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-img">
+                            <a href="http://www.profi-car.com/" target="_blank"><img class="img-responsive" src="images/products/proficar.jpg" alt="proficar"></a>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="lub-product">
+                        <a id="prod1">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Motor Oils</h3>
+                        </a>
+
+                    </div>
+                </div>
+                
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="add-product">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Truck Oils</h3>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="carcare-product">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Gear Oils</h3>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="filter-product">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Car Care</h3>
+
+                    </div>
+                </div>
+                
+        			
+            </div> <!-- End of Row -->
+
+            <!-- hidden Product panel Motor Oils -->
+            <div id="products-panel-lub" style="display: none;">
+            <div class="row">
+                <div class="col-xs-6 col-md-12">
+                    <h2 style="text-align: center;">Motor Oils </h2>
+                </div>
+            </div>
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14134_eco-drive_ll_1_5w-30_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14134_eco-drive_ll_1_5w-30_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14134_eco-drive_ll_1_5w-30_.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR ECO-DRIVE LONGLIFE 1 SAE&nbsp;5W‑30
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR ECO-DRIVE LONGLIFE 1 SAE 5W-30 is a synthetic, high performance, low friction oil for fuel and diesel motors in cars. It is a LOW SAPS product with reduced sulphur, ash and phosphorus content. Base oils ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                                
+                                            
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14144_eco-drive_ll_1__5w-40_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14144_eco-drive_ll_1__5w-40_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14144_eco-drive_ll_1__5w-40_.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR ECO-DRIVE LONGLIFE 1 SAE&nbsp;5W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR ECO-DRIVE LONGLIFE 1 SAE 5W-40 is a synthetic, high performance, low friction oil for fuel and diesel motors in cars. It is a LOW SAPS product produced with the latest synthesis technology and carefully chosen ...
+                                                        
+                                                    </p>
+                                                </div>
+                                               
+                                    
+                                            
+                                        </div>
+                                    </div>
+                                
+            </div> <!-- end row -->
+
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14814_stopandgo_sae_5w_30_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14814_stopandgo_sae_5w_30_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/14814_stopandgo_sae_5w_30_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR STOP &amp; GO SAE&nbsp;5W‑30
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR STOP &amp; GO SAE 5W-30 is a motor oil, which operates against the high load of the motor due to the stop and go mode in the city traffic. A synthetic high performance low friction oil for fuel and diesel motors in ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+
+                                
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/11804_challenge_5w-20_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/11804_challenge_5w-20_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/11804_challenge_5w-20_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR CHALLENGE SAE&nbsp;5W‑20
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR CHALLENGE SAE 5W-20 is a fuel economical high performance synthetic oil for fuel and diesel motors for which Fuel Economy (FE) oils of the SN API class are specified. The low viscosity of the special synthetic ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                            
+
+
+
+            </div> <!-- end row -->
+
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/12514_synth-tech_fs_5w-40_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/12514_synth-tech_fs_5w-40_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/12514_synth-tech_fs_5w-40_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR SYNTH-TECH FS SAE&nbsp;5W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR SYNTH-TECH FS SAE 5W-40 is a motor oil for the fuel efficient and economical operation of motors. To guarantee the performance of the SAE 5W class together with a volatility SYNTH-TECH FS SAE 5W-40 consists ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/17134_performance__15w-40_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/17134_performance__15w-40_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/17134_performance__15w-40_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR performance SAE&nbsp;15W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR PERFORMANCE SAE 15W-40 is a new HD motor oil, high alloyed with synthetic additives. It is well suited for cars with fuel and diesel motors, even with turbocharging. The high additive content guarantees ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                        
+            </div> <!-- end row -->
+
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                            <a href="/product_details/342/">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/16114_evolution_xt_10w-40_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/16114_evolution_xt_10w-40_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/16114_evolution_xt_10w-40_.png.800x800_q90.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR EVOLUTION XT SAE&nbsp;10W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR EVOLUTION XT SAE 10W-40 is a high alloyed motor oil which provides fuel economical operation of the motors due to the choice of additives, the base oils and the viscosity grade. To guarantee the performance of ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                </div>
+
+            
+           
+        </div>
+
+        <!-- hidden Product panel 2 Truck Oils -->
+            <div id="products-panel-additives" style="display: none;">
+            <div class="row">
+                <div class="col-xs-6 col-md-12">
+                    <h2 style="text-align: center;"> Truck Oils </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/34215_eco-liner_10w-40.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/34215_eco-liner_10w-40.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/34215_eco-liner_10w-40.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR ECO-LINER SAE&nbsp;10W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR ECO-LINER SAE 10W-40 is an ultra-high-performance motor oil for the use in different diesel motors based on the HC synthesis technology. It is designed for vehicles, where the specification ACEA E9 is ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35205_actron_10w-40.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35205_actron_10w-40.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35205_actron_10w-40.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR ACTRON SAE&nbsp;10W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR ACTRON SAE 10W-40 is a UHPD fuel economical motor oil which is suitable for an all-sesaon application in heavy duty commercial vehicles with unsupercharged or turbocharged diesel and fuel motors. Base oils and ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+            </div> <!-- end of Row -->
+
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35105_light-truck_xt_10w-40.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35105_light-truck_xt_10w-40.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/35105_light-truck_xt_10w-40.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR LIGHT-TRUCK XT SAE&nbsp;10W‑40
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR LIGHT-TRUCK XT SAE 10W-40 is a fuel economical, universal, lightrun motor oil made of synthetic base oils and modern additives which can be used all over the year in any type of heavy duty commercial vehicles ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/33105_turbo-synth_5w-30.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/33105_turbo-synth_5w-30.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/33105_turbo-synth_5w-30.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR TURBO-SYNTH SAE&nbsp;5W‑30
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR TURBO-SYNTH SAE 5W-30 is a synthetic, high-performance, low-friction motor oil for commercial vehicles, with significantly reduced sulphated ash, phosphorus and sulphur content. Thanks to high-performance ...
+                                                        
+                                                    </p>
+                                                </div>
+                                               
+                                        </div>
+                                    </div>
+                        
+        </div> <!-- end of row -->
+        <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/37505_mono-g_sae_50.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/37505_mono-g_sae_50.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/37505_mono-g_sae_50.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DPT MONO-G SAE&nbsp;50
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DIESEL-POWER-TRUCK MONO-G SAE 50 is a modern, alloyed HD motor oil with synthetic additives. It is well suited for cars with fuel and diesel motors, even with turbocharger.The high additive content guarantees ...
+                                                        
+                                                    </p>
+                                                </div>
+                                               
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+           
+        </div> <!-- end of row -->
+
+        <!-- hidden Product panel 3 Gear oils -->
+        <div id="products-panel-carcare" style="display: none;">
+            <div class="row">
+                <div class="col-xs-6 col-md-12">
+                    <h2 style="text-align: center;"> Gear Oils </h2>
+                </div>
+            </div>
+           
+
+
+                        
+            
+                            
+                        
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21801_dex-tech_vi_atf_dexron_vi.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21801_dex-tech_vi_atf_dexron_vi.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21801_dex-tech_vi_atf_dexron_vi.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF DEXRON VI
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH ATF DEXRON VI is a newly developed synthetic transmission fluid for automatic transmissions with converters or wet-running clutches complying with the latest GM (General Motors) DEXRON VI ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21501_dex-tech_jp.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21501_dex-tech_jp.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21501_dex-tech_jp.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF JP
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH ATF DEXRON JP is a fully synthetic automatic transmission fluid based on synthetic base oils, formulated with special friction modifiers to obtain the advanced properties like a very high and stable ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+            </div> <!-- end of row -->
+                            
+                        
+            <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21731_dex-tech_atf_cvt_3d_frei.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21731_dex-tech_atf_cvt_3d_frei.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21731_dex-tech_atf_cvt_3d_frei.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF CVT
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH ATF CVT with its high viscosity offers an excellent protection against wear for enduring lifetime. An outstanding friction coefficient for calm gear changing without vibrations and best torque ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+                        
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/dex-tech_atf_dsg_3d_frei.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/dex-tech_atf_dsg_3d_frei.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/dex-tech_atf_dsg_3d_frei.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF DSG
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH ATF DSG with its stable fricion characteristics offers an excellent wear protection on high and low temperatures. A very high viscosity index, outstanding viscosity-temperature behavior and an ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                            
+        </div> <!-- end of row -->
+                        
+        <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21601_pcudt_glaenzend_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21601_pcudt_glaenzend_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21601_pcudt_glaenzend_.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH PCUDT ULTIMATE ATF
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH PCUDT ULTIMATE ATF meets the latest specifications and performance requirements of most automatic transmission manufacturers. For the production of DEX- TECH, PCUDT ULTIMATE ATF only the qualitative ...
+                                                        
+                                                    </p>
+                                                </div>
+                                               
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21301_dex-tech_pclt_lifetime_neu1_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21301_dex-tech_pclt_lifetime_neu1_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21301_dex-tech_pclt_lifetime_neu1_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH PCLT LIFETIME
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH PCLT LIFETIME offers a very high viscosity index and extremely high load carrying assets and reduce wear. A low pourpoint, positive activity against foam and an excellent viscosity-temperature behavior ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                            
+        </div> <!-- end of row -->
+                        
+        <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21761_xtra-shift_6hp_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21761_xtra-shift_6hp_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21761_xtra-shift_6hp_.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR Xtra SHIFT 6HP
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR XTRA-SHIFT 6HP was especially developed for modern ZF 6-speed automatic transmissions and is compatible with older ZF 5-speed automatic transmissions. This ATF guarantees highest quality, high load carrying ...
+                                                        
+                                                    </p>
+                                                </div>
+                                               
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21771_xtra-shift_8hp_new_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21771_xtra-shift_8hp_new_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21771_xtra-shift_8hp_new_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR Xtra SHIFT 8HP
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR XTRA-SHIFT 8HP was especially developed for modern ZF 6-, 8- and 9-speed automatic transmissions.This ATF guarantees highest quality, high load carrying capability and extremly low friction properties. The ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+        </div> <!-- end of row -->
+                        
+        <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21781_xtra-shift_236_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21781_xtra-shift_236_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21781_xtra-shift_236_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR Xtra SHIFT 236.15
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR XTRA-SHIFT 236.15 was especially developed for the latest Mercedes-Benz 7-speed automatic transmissions (NAG2FE+). This ATF guarantees highest quality, high load carrying capability and extremly low friction ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+                            
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21791_xtra-shift_236.14_.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21791_xtra-shift_236.14_.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21791_xtra-shift_236.14_.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR Xtra SHIFT 236.14
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR XTRA-SHIFT 236.14 was especially developed for Mercedes-Benz 7-speed automatic transmissions (NAG2/version 722.9). This ATF guarantees highest quality, lowest evaporation losses and extremly low friction ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                        </div>
+                                    </div>
+                                
+        </div> <!-- end of row -->
+
+        <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21101_dex-tech_ii-d.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21101_dex-tech_ii-d.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21101_dex-tech_ii-d.png.800x800_q90.png">
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF DEXRON II-D
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR DEX-TECH II-D ATF DEXRON II-D is an automatic transmission fluid for the use in automatic transmissions as well as power steerings and levelling systems in cars, busses, trucks and construction site ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+                                
+                        
+                        
+                                    <div class="col-sm-3">
+                                        <div class="mainimage">
+                                                <img class="img-responsive lazyxt lazy-loaded" data-original="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21201_dex-tech_iii-h.png.800x800_q90.png" alt="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21201_dex-tech_iii-h.png.800x800_q90.png" src="https://profitech-live-64d2854dca8b41b5be57683-293ac1b.aldryn-media.com/21201_dex-tech_iii-h.png.800x800_q90.png">
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="content-box-right-side">
+                                                <h2 class="heading">
+                                                        PROFI‑CAR DEX-TECH ATF DEXRON III-H
+                                                </h2>
+                                                <div class="text">
+                                                    <p>
+                                                        
+                                                        PROFI-CAR ATF DEXRON III-H is an universal ATF and meets the latest specifications and performance requirements of most automatic transmission manufacturers. For the production of ATF DEXRON III-H only the qualitative ...
+                                                        
+                                                    </p>
+                                                </div>
+                                                
+                                            
+                                        </div>
+                                    </div>
+            </div> <!-- end of row -->
+                        
+        </div>
+
+
+        </div>
+
+
+        <!-- hidden Product panel 4 -->
+            <div id="products-panel-filters" style="display: none;">
+            <div class="row">
+                <div class="col-xs-6 col-md-12">
+                    <h2 style="text-align: center;"> Car Filters </h2>
+                </div>
+            </div>
+            <div class="row">
+               
+                <div class="col-xs-6 col-md-3">
+                    <div class="sub-product-images-thumb">
+                        <a id="prod1">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Lubricants</h3>
+                        </a>
+
+                    </div>
+                </div>
+                
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="sub-product-images-thumb">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Additives</h3>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="sub-product-images-thumb">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Car Care</h3>
+
+                    </div>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="sub-product-images-thumb">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Filters</h3>
+
+                    </div>
+                </div>
+                
+                    
+            </div> <!-- End of Row -->
+        </div>
+        
+        <!-- Product row two -->
+        <div class="row">
+                
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="carcare-lub-product">
+                        <a id="prod1">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Car Care</h3>
+                        </a>
+
+                    </div>
+                </div>
+                
+
+                <div class="col-xs-6 col-md-3">
+                    <div class="product-images-thumb" id="filter-add-product">
+                                            <img class="" src="images/products/14204_eco-drive_ll_plus.png">
+                                            <h3>Filters</h3>
+
+                    </div>
+                </div>
+
+                
+                
+                    
+            </div> <!-- End of Row -->
+
+
+            
+        </div>
+    </section><!--/#partner-->
+
+    <section id="team" class="">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Our Team</h2>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-img">
+                            <a href="http://www.profi-car.com/" target="_blank"><img class="img-responsive" src="images/team/team.jpg" alt="Team"></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-images-thumb" >
+                         <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>           
+            </div> <!-- End of Row -->
+
+            <div class="row">
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="0ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms">
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms"></a>
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>        
+                <div class="col-xs-6 col-md-3">
+                    <div class="team-member wow fadeInUp" data-wow-duration="400ms" data-wow-delay="100ms"></a>
+                        <div class="team-images-thumb">
+                            <img class="" src="images/team/staff.jpg" alt="Intel Security">
+                         <h4> Hamzeh Jabari </h4>
+                        </div>
+                    </div>
+                </div>              
+            </div> <!-- End of Row -->          
+            
+        </div>
+    </section><!--/#partner-->
+
+    <section id="about">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">About Us</h2>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member animated fadeInLeft">
+                        <div class="team-images-thumb">
+                            <img class="img-responsive" src="images/boss.jpg" alt="General Manager">
+                            <h6> SALMAN MLEAHAT </h6>
+                            <h4> Executive Manager </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                <div class="bgblue">
+                <p class="text-center wow fadeInDown fontNormalSize">
+				We at Stop and Go understand what it means to take care of a Car, our mission is to keep you on the road not off the road. You can sitdown and relax while our team take care of your car - Salman Mleahat			
+				</p>
+                </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="team-member wow fadeInRight">
+                        <div class="team-images-thumb">
+                            <img class="img-responsive" src="images/team/gmanager.jpg" alt="General Manager">
+                            <h6> QASEM SALAH </h6>
+                            <h4> General Manager </h4>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+
+            <div class="row">
+                <div class="col-sm-6 wow fadeInLeft">
+                    <div class="bgblue">
+                    <h3 class="column-title">Mission</h3>
+					<p class="fontNormalSize">Customer satisfaction through hight quality service and the use of good quality products. Respect and value our customers. Develope Service Centers to achive best customer service. Open more branches to reach customers all over the country. Use green and environment friendly products suitalbe for modern cars</p>
+                </div>
+                </div>
+
+                <div class="col-sm-6 wow fadeInRight">
+                    <div class="bgblue">
+                    <h3 class="column-title">Vision</h3>
+                    <p class="fontNormalSize">The gurrentee that our customers get the best service on an international standard. Building and enforcment of our team capabilites and continuous enhancement of our facilities to ensure excellent service delivery </p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section><!--/#about-->	
+	
+    <section id="get-in-touch">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title text-center wow fadeInDown">Get in Touch</h2>
+               
+            </div>
+        </div>
+		<section id="contact">
+			<div class="container-wrapper">
+				<div class="container">
+					<div class="row">
+							<div class="contact-form wow fadeInDown">
+								<h3 class="smallContactHeader">Contact Us</h3>
+								<address class="fontNormalSize" style="margin-bottom: 8px;">
+								  <p>If you have any questions or need some assitance, please don't hesitate to contact us.</p>							
+								  <strong>Email:</strong> info@car-stopandgo.com <br>
+								</address>
+
+								<form id="main-contact-form" name="contact-form" method="post" action="#">
+									<div class="form-group">
+										<input type="text" name="name" id="name" class="form-control" placeholder="Name" required>
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
+									</div>
+									<div class="form-group">
+										<input type="text" name="subject" id="subject" class="form-control" placeholder="Subject" required>
+									</div>
+									<div class="form-group">
+										<textarea name="message" id="message" class="form-control" rows="5" placeholder="Message" required></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary fontNormalSize" onclick="SendMessage()">Send Message</button>
+								</form>
+							</div>
+					</div>
+				</div>
+			</div>
+		</section><!--/#bottom-->		
+    </section><!--/#get-in-touch-->
+
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 fontNormalSize">
+					Copyright © 2017 QS LTD. All rights reserved.
+                </div>
+                <div class="col-sm-6">
+                    <div class="fl_right">
+                <div class="meta-social">
+                    <a href="https://www.facebook.com/Stop-and-Go-1469150059846966" target="_blank">
+                        <i class="fa fa-facebook" aria-hidden="true"></i>
+                    </a>
+                    <a href="" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=OFthJujj0Uc" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </div>      
+                </div>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/mousescroll.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCin-XG372Kc478jTK283Iv5-T2-dunJd4&callback=initialize"async defer></script>
+
+    <script> 
+$(document).ready(function(){
+    $("#lub-product").click(function(){
+        $("#products-panel-lub").slideToggle("slow");
+
+        $("#lub-product").css("background-color","#ccc");
+        $("#add-product").css("background-color","#fff");
+        $("#carcare-product").css("background-color","#fff");
+        $("#filter-product").css("background-color","#fff");
+
+        $("#products-panel-lub").css("background-color","#ccc");
+        $("#products-panel-additives").slideUp();
+        $("#products-panel-carcare").slideUp();
+        $("#products-panel-filters").slideUp();
+
+
+    });
+    $("#add-product").click(function(){
+        $("#products-panel-additives").slideToggle("slow");
+
+        $("#add-product").css("background-color","#ccc");
+        $("#lub-product").css("background-color","#fff");
+        $("#carcare-product").css("background-color","#fff");
+        $("#filter-product").css("background-color","#fff");
+
+        $("#products-panel-additives").css("background-color","#ccc");
+        $("#products-panel-lub").hide();
+        $("#products-panel-carcare").slideUp();
+        $("#products-panel-filters").slideUp();
+    });
+    $("#carcare-product").click(function(){
+        $("#products-panel-carcare").slideToggle("slow");
+
+        $("#carcare-product").css("background-color","#ccc");
+        $("#lub-product").css("background-color","#fff");
+        $("#add-product").css("background-color","#fff");
+        $("#filter-product").css("background-color","#fff");
+
+        $("#products-panel-carcare").css("background-color","#ccc");
+        $("#products-panel-lub").slideUp();
+        $("#products-panel-additives").slideUp();
+        $("#products-panel-filters").slideUp();
+    });
+    $("#filter-product").click(function(){
+        $("#products-panel-filters").slideToggle("slow");
+
+        $("#filter-product").css("background-color","#ccc");
+        $("#lub-product").css("background-color","#fff");
+        $("#carcare-product").css("background-color","#fff");
+        $("#add-product").css("background-color","#fff");
+
+        $("#products-panel-filters").css("background-color","#ccc");
+        $("#products-panel-additives").slideUp();
+        $("#products-panel-carcare").slideUp();
+        $("#products-panel-lub").slideUp();
+    });
+});
+</script>
+
+</body>
+</html>
